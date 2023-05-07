@@ -1,10 +1,3 @@
-# The steps to calculate max pain according to investopedia
-# 1. Find the difference between stock price and strike price
-# 2. Multiply the result by open interest at that strike
-# 3. Add together the dollar value for the put and call at that strike
-# 4. Repeat for each strike price
-# 5. Find the highest value strike price. This price is equivalent to max pain price.
-
 import yfinance as yf
 import pandas as pd
 
