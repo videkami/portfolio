@@ -13,25 +13,28 @@
       margin: 0;
       padding: 0;
       height: 100%;
-      background: white;
+      /* background: white; */
+      background-color: rgba(255, 255, 255, 0.9);
       display: flex;
       justify-content: center;
       align-items: center;
       overflow: hidden;
+      opacity: 0.95;
     }
 
     .knockout-text {
-      /* font-family: 'Bebas Neue', sans-serif; */
-      font-size: 30vw; /* Responsive to screen width */
+      /* font-family: 'Bebas Neue'; */
+      font-size: 35vw; /* Responsive to screen width */
       text-align: center;
       background: url('https://i.imgur.com/jHcxsze.jpg') no-repeat center center;
       background-size: cover;
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      line-height: .4; /* Tighter spacing between VIDE and KAMI */
+      line-height: .6; /* Tighter spacing between VIDE and KAMI */
       /* Optional slight tracking */
       /* letter-spacing: 0.02em;  */
+      letter-spacing: -40px;
     }
   </style>
 </head>
@@ -39,7 +42,8 @@
 
   <div class="knockout-text"><strong>
     VIDE<br>
-    KAMI
+    &nbsp;KAMI
+  
   </strong>
   </div>
 
