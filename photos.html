@@ -17,6 +17,7 @@
 
         .photo-container {
             position: relative;
+            width: 800px;
             max-width: 90vw;
             max-height: 90vh;
             border-radius: 10px;
@@ -26,23 +27,11 @@
             box-sizing: border-box;
         }
 
-        @media (max-width: 767px) {
-            .photo-container {
-                width: 600px;
-            }
-        }
-
-        @media (min-width: 768px) {
-            .photo-container {
-                width: 800px;
-            }
-        }
-        
         .photo-container img {
             display: block;
             width: 100%;
-            object-fit: cover;
-            height: auto;
+            object-fit: contain;
+            height: 100%;
         }
 
         .nav-overlay {
