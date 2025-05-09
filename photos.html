@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,20 +18,18 @@
 
         .photo-container {
             position: relative;
-            max-width: 90vw;
-            max-height: 90vh;
-            border-radius: 10px;
+            height: auto;
+            max-width: 70%; 
             overflow: hidden;
             box-shadow: 10px 10px 20px #686868, -10px -10px 20px #ffffff;
-            cursor: pointer;
             box-sizing: border-box;
         }
 
         .photo-container img {
-            display: block;
+            height: auto;
             width: 100%;
+            display: block;
             object-fit: contain;
-            height: 100%;
         }
 
         .nav-overlay {
@@ -42,18 +41,17 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
         }
-
-        .nav-overlay > div {
-        }
     </style>
 </head>
+
 <body>
     <div class="photo-container">
         <img src="https://i.imgur.com/MV3jrW3.jpeg" alt="Photo 1">
-        <div class="nav-overlay">
-            <div onclick="previousPhoto()"></div>
-            <div onclick="nextPhoto()"></div>
-        </div>
+    </div>
+   
+    <div class="nav-overlay">
+        <div onclick="previousPhoto()"></div>
+        <div onclick="nextPhoto()"></div>
     </div>
 
     <script>
@@ -61,7 +59,7 @@
             "https://i.imgur.com/xbZ6aku.jpeg",
             "https://i.imgur.com/abVBvLU.jpeg",
             "https://i.imgur.com/QFfkl59.jpeg"
-            ]
+        ]
         let currentIndex = 0;
         const photoElement = document.querySelector('.photo-container img');
 
@@ -75,5 +73,7 @@
             photoElement.src = photos[currentIndex];
         }
     </script>
+
 </body>
+
 </html>
