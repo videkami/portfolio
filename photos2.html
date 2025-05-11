@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIDE KAMI | lightroom</title>
+    <link rel="stylesheet" href="navbar.css">
+    <script src="navbar.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Emoji&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .bg {
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(var(--vh, 1vh) * 100);
+            overflow: hidden;
+        }
+
+        .photo-container {
+            position: relative;
+            height: auto;
+            max-width: 70%;
+            overflow: hidden;
+            box-shadow: 10px 10px 20px #686868, -10px -10px 20px #ffffff;
+            box-sizing: border-box;
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: auto;
+            max-height: calc(var(--vh, 1vh) * 100);
+            object-fit: contain;
+            display: block;
+        }
+
+        .nav-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .menu-button {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: 2rem;
+            font-family: 'Noto Emoji', sans-serif;
+            z-index: 10;
+            cursor: pointer;
+            /* background: rgba(255, 255, 255, 0.8); */
+            border-radius: 0.5rem;
+            padding: 0.3rem 0.6rem;
+            /* box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2); */
+        }
+    </style>
+    <script>
+        function setVH() {
+            const vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+
+        window.addEventListener('resize', setVH);
+        window.addEventListener('orientationchange', setVH);
+        window.addEventListener('load', setVH);
+        setVH();
+    </script>
+
+</head>
+
+<body>
+    <div class="bg">
+        <div class="photo-container">
+            <img src="https://i.imgur.com/MV3jrW3.jpeg" alt="Photo 1">
+            <div class="nav-overlay">
+                <div onclick="previousPhoto()"></div>
+                <div onclick="nextPhoto()"></div>
+            </div>
+        </div>
+    </div>
+    <div class="menu-button" onclick="openNav()">🍙</div>
+        <!-- <div class="menu-button" onclick="openNav()">🐂</div> -->
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">About</a>
+        <a href="#">Pets</a>
+        <a href="#">People</a>
+        <a href="#">01</a>
+    </div>
+
+    <script>
+        const photos = ["https://i.imgur.com/MV3jrW3.jpeg",
+             "https://i.imgur.com/xbZ6aku.jpeg",
+             "https://i.imgur.com/abVBvLU.jpeg",
+             "https://i.imgur.com/QFfkl59.jpeg"
+         ]
+        let currentIndex = 0;
+        const photoElement = document.querySelector('.photo-container img');
+
+        function nextPhoto() {
+            currentIndex = (currentIndex + 1) % photos.length;
+            photoElement.src = photos[currentIndex];
+        }
+
+        function previousPhoto() {
+            currentIndex = (currentIndex - 1 + photos.length) % photos.length;
+            photoElement.src = photos[currentIndex];
+        }
+    </script>
+
+</body>
+
+</html>
