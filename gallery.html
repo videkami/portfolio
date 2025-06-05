@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VIDE KAMI | lightroom</title>
-      <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="navbar.css">
 
     <style>
         body {
@@ -60,7 +60,7 @@
 </head>
 
 <body>
-      <div id="header-placeholder"></div>
+    <div id="header-placeholder"></div>
 
     <div class="photo-container">
         <img src="https://i.imgur.com/MV3jrW3.jpeg" alt="Photo 1">
@@ -90,28 +90,27 @@
             photoElement.src = photos[currentIndex];
         }
     </script>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-      // Function to load HTML into a placeholder
-      function loadHTML(url, elementId) {
-        fetch(url)
-          .then(response => response.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(html, 'text/html');
-            const contentToInsert = doc.body.children.length > 0 ? doc.body.children[0] : null;
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            function loadHTML(url, elementId) {
+                fetch(url)
+                    .then(response => response.text())
+                    .then(html => {
+                        const parser = new DOMParser();
+                        const doc = parser.parseFromString(html, 'text/html');
+                        const contentToInsert = doc.body.children.length > 0 ? doc.body.children[0] : null;
 
-            if (contentToInsert) {
-              document.getElementById(elementId).appendChild(contentToInsert);
-            } else {
-              document.getElementById(elementId).innerHTML = html;
+                        if (contentToInsert) {
+                            document.getElementById(elementId).appendChild(contentToInsert);
+                        } else {
+                            document.getElementById(elementId).innerHTML = html;
+                        }
+                    })
+                    .catch(error => console.error(`Error loading ${url}:`, error));
             }
-          })
-          .catch(error => console.error(`Error loading ${url}:`, error));
-      }
-      loadHTML('/header.html', 'header-placeholder');
-    });
-  </script>
+            loadHTML('/header.html', 'header-placeholder');
+        });
+    </script>
 </body>
 
 </html>

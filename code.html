@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>VIDE KAMI | hello world</title>
-  <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="navbar.css">
     <link href="https://fonts.googleapis.com/css2?family=Concord&display=swap" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine"> -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine&text=Max%20Pain">
     <style>
         body {
@@ -19,7 +18,6 @@
             position: fixed;
             width: 20%;
             height: 100vh;
-            /* background-color: #f0f0f0; */
             background-color: #ffffff;
             justify-content: center;
             padding: 3%;
@@ -39,7 +37,6 @@
             display: flex;
             justify-content: center;
             background-color: #f0f0f0;
-
         }
 
         h1 {
@@ -56,13 +53,11 @@
             display: flex;
             justify-content: center;
             height: auto;
-            /* max-width: 70%; */
             box-shadow: 10px 10px 20px #686868, -10px -10px 20px #ffffff;
             box-sizing: border-box;
             overflow-x: auto;
         }
 
-        /* Ensure Gist is responsive */
         .gist {
             max-width: 100% !important;
             overflow-x: auto;
@@ -98,8 +93,7 @@
 </head>
 
 <body>
-      <div id="header-placeholder"></div>
-
+    <div id="header-placeholder"></div>
     <div class="left">
         <div class="left-container">
             <h1>Max Pain</h1>
@@ -111,10 +105,7 @@
                 options expiration dates.</p>
             <p>This script pulls the open interest and cost of the option at every strike price for the given stock
                 ticker. </p>
-    
-    
         </div>
-
     </div>
     <div class="right">
         <div class="right-container">
@@ -123,7 +114,6 @@
     </div>
 
     <script>
-        // Ensure iframe inside gist resizes properly
         window.addEventListener("load", function () {
             const gistFrames = document.querySelectorAll('.gist iframe');
             gistFrames.forEach(frame => {
@@ -132,27 +122,26 @@
         });
     </script>
     <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      // Function to load HTML into a placeholder
-      function loadHTML(url, elementId) {
-        fetch(url)
-          .then(response => response.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(html, 'text/html');
-            const contentToInsert = doc.body.children.length > 0 ? doc.body.children[0] : null;
+        document.addEventListener('DOMContentLoaded', function () {
+            function loadHTML(url, elementId) {
+                fetch(url)
+                    .then(response => response.text())
+                    .then(html => {
+                        const parser = new DOMParser();
+                        const doc = parser.parseFromString(html, 'text/html');
+                        const contentToInsert = doc.body.children.length > 0 ? doc.body.children[0] : null;
 
-            if (contentToInsert) {
-              document.getElementById(elementId).appendChild(contentToInsert);
-            } else {
-              document.getElementById(elementId).innerHTML = html;
+                        if (contentToInsert) {
+                            document.getElementById(elementId).appendChild(contentToInsert);
+                        } else {
+                            document.getElementById(elementId).innerHTML = html;
+                        }
+                    })
+                    .catch(error => console.error(`Error loading ${url}:`, error));
             }
-          })
-          .catch(error => console.error(`Error loading ${url}:`, error));
-      }
-      loadHTML('/header.html', 'header-placeholder');
-    });
-  </script>
+            loadHTML('/header.html', 'header-placeholder');
+        });
+    </script>
 </body>
 
 </html>

@@ -30,7 +30,6 @@
       overflow-y: hidden;
       height: 100vh;
       scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
       padding: 20px;
       gap: 20px;
       align-items: center;
@@ -39,7 +38,6 @@
     .card {
       margin: 2%;
       flex: 0 0 auto;
-      /* width: 85vw; */
       max-width: 400px;
       height: 80%;
       background-color: white;
@@ -49,19 +47,18 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      /* padding: 20px; */
+      font-size: 1.4vw;
     }
 
     .card.description {
       background-color: #e0f7fa;
       text-align: left;
-      padding: 2%;
-      font-size: medium;
+      padding: 5%;
     }
 
     .card.description h1 {
       margin-top: 0;
-      font-size: 3.9em;
+      font-size: 3em;
       font-family: 'Tangerine', serif;
       text-align: center;
     }
@@ -86,45 +83,38 @@
   <div class="scrolling-wrapper">
     <div class="card description">
       <div>
-        <h1>In The Mood For Love</h1>
-        <p>Build deeper connections with the people who matter.
-          Based on psychologist Arthur Aron’s famous “36 Questions,” this app guides two people through meaningful
-          conversations designed to foster closeness and trust.</p>
-        <p>Made in Flutter for accessibility to all users, iOS and android.</p>
-        <p>Side quests: mini games between the 3 sets of questions foster a fun memory while providing a release from increasing emotions.</p>
-        <br>
-        <p>(Link and/or QR code)</p>
+        <h1>In The Mood<br> For Love</h1>
       </div>
     </div>
-
+    <div class="card description">
+      <div>
+        <p>Based on Arthur Aron’s “36 Questions,” this app guides two people through meaningful conversations.</p>
+        <p>Mini games between the sets of questions foster a fun memory while providing a release from increasing
+          emotions.</p>
+        <p>Made in Flutter for accessibility to all users.</p>
+      </div>
+    </div>
     <div class="card">
       <img src="plus1_app/app01.png" alt="Screenshot 1">
     </div>
-
     <div class="card">
       <img src="plus1_app/app02.png" alt="Screenshot 2">
     </div>
-
     <div class="card">
       <img src="plus1_app/app03.png" alt="Screenshot 3">
     </div>
     <div class="card">
       <img src="plus1_app/app04.png" alt="Screenshot 3">
     </div>
-    <!-- Add more cards as needed -->
+    <!-- <div class="card description">
+      <div>
+        <p>(Link and/or QR code)</p>
+      </div>
+    </div> -->
   </div>
 
-  <!-- Optional: Attempt orientation lock (requires fullscreen/PWA) -->
-  <script>
-    if (screen.orientation && screen.orientation.lock) {
-      screen.orientation.lock('portrait').catch(err => {
-        console.log("Orientation lock not available:", err);
-      });
-    }
-  </script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      // Function to load HTML into a placeholder
       function loadHTML(url, elementId) {
         fetch(url)
           .then(response => response.text())
@@ -144,7 +134,6 @@
       loadHTML('/header.html', 'header-placeholder');
     });
   </script>
-
 </body>
 
 </html>
