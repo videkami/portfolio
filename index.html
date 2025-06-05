@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>VIDE KAMI</title>
- <link rel="stylesheet" href="navbar.css">
+  <link rel="stylesheet" href="navbar.css">
   <style>
     body,
     html {
@@ -35,12 +35,15 @@
 </head>
 
 <body>
-  <div class="knockout-text"><strong>
-      VIDE<br>
-      &nbsp;KAMI
-    </strong>
-  </div>
- <script>
+  <div id="header-placeholder"></div>
+  <a href="/gallery.html" class="photo-link">
+    <div class="knockout-text"><strong>
+        VIDE<br>
+        &nbsp;KAMI
+      </strong>
+    </div>
+  </a>
+  <script>
     document.addEventListener('DOMContentLoaded', function () {
       // Function to load HTML into a placeholder
       function loadHTML(url, elementId) {
