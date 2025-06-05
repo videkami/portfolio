@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>VIDE KAMI | app</title>
+  <link rel="stylesheet" href="navbar.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      overflow: hidden;
+    }
+
+    .scrolling-wrapper {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      overflow-y: hidden;
+      height: 100vh;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding: 20px;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .card {
+      margin: 2%;
+      flex: 0 0 auto;
+      /* width: 85vw; */
+      max-width: 400px;
+      height: 80%;
+      background-color: white;
+      border-radius: 50px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      scroll-snap-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* padding: 20px; */
+    }
+
+    .card.description {
+      background-color: #e0f7fa;
+      text-align: left;
+      padding: 2%;
+      font-size: medium;
+    }
+
+    .card.description h1 {
+      margin-top: 0;
+      font-size: 3.9em;
+      font-family: 'Tangerine', serif;
+      text-align: center;
+    }
+
+    .card img {
+      max-height: 100%;
+      max-width: 100%;
+      border-radius: 40px;
+      object-fit: contain;
+    }
+
+    /* hide scrollbars on iOS/Chrome */
+    /* .scrolling-wrapper::-webkit-scrollbar {
+      display: none; 
+    } */
+  </style>
+</head>
+
+<body>
+  <div id="header-placeholder"></div>
+
+  <div class="scrolling-wrapper">
+    <div class="card description">
+      <div>
+        <h1>In The Mood For Love</h1>
+        <p>Build deeper connections with the people who matter.
+          Based on psychologist Arthur Aron’s famous “36 Questions,” this app guides two people through meaningful
+          conversations designed to foster closeness and trust.</p>
+        <p>Made in Flutter for accessibility to all users, iOS and android.</p>
+        <p>Side quests: mini games between the 3 sets of questions foster a fun memory while providing a release from increasing emotions.</p>
+        <br>
+        <p>(Link and/or QR code)</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="plus1_app/app01.png" alt="Screenshot 1">
+    </div>
+
+    <div class="card">
+      <img src="plus1_app/app02.png" alt="Screenshot 2">
+    </div>
+
+    <div class="card">
+      <img src="plus1_app/app03.png" alt="Screenshot 3">
+    </div>
+    <div class="card">
+      <img src="plus1_app/app04.png" alt="Screenshot 3">
+    </div>
+    <!-- Add more cards as needed -->
+  </div>
+
+  <!-- Optional: Attempt orientation lock (requires fullscreen/PWA) -->
+  <script>
+    if (screen.orientation && screen.orientation.lock) {
+      screen.orientation.lock('portrait').catch(err => {
+        console.log("Orientation lock not available:", err);
+      });
+    }
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Function to load HTML into a placeholder
+      function loadHTML(url, elementId) {
+        fetch(url)
+          .then(response => response.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            const contentToInsert = doc.body.children.length > 0 ? doc.body.children[0] : null;
+
+            if (contentToInsert) {
+              document.getElementById(elementId).appendChild(contentToInsert);
+            } else {
+              document.getElementById(elementId).innerHTML = html;
+            }
+          })
+          .catch(error => console.error(`Error loading ${url}:`, error));
+      }
+      loadHTML('/header.html', 'header-placeholder');
+    });
+  </script>
+
+</body>
+
+</html>

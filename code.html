@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>VIDE KAMI | hello world</title>
+  <link rel="stylesheet" href="navbar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Concord&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine"> -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine&text=Max%20Pain">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+        }
+
+        .left {
+            position: fixed;
+            width: 20%;
+            height: 100vh;
+            /* background-color: #f0f0f0; */
+            background-color: #ffffff;
+            justify-content: center;
+            padding: 3%;
+            box-sizing: border-box;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .left-container {
+            position: relative;
+        }
+
+        .right {
+            margin-left: 20%;
+            width: 80%;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            background-color: #f0f0f0;
+
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            font-family: 'Tangerine', serif;
+            font-size: 3.9em;
+        }
+
+        .right-container {
+            background-color: #ffffff;
+            margin-top: 5%;
+            margin-bottom: 5%;
+            padding: 2%;
+            display: flex;
+            justify-content: center;
+            height: auto;
+            /* max-width: 70%; */
+            box-shadow: 10px 10px 20px #686868, -10px -10px 20px #ffffff;
+            box-sizing: border-box;
+            overflow-x: auto;
+        }
+
+        /* Ensure Gist is responsive */
+        .gist {
+            max-width: 100% !important;
+            overflow-x: auto;
+        }
+
+        .gist iframe {
+            width: 100% !important;
+        }
+
+        @media (max-width: 1080px) {
+            body {
+                flex-direction: column;
+            }
+
+            .left {
+                position: static;
+                width: 100%;
+                height: auto;
+                align-items: center;
+            }
+
+            .right {
+                margin-left: 0;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .right-container {
+                max-width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+      <div id="header-placeholder"></div>
+
+    <div class="left">
+        <div class="left-container">
+            <h1>Max Pain</h1>
+            <p>The Max Pain theory in options trading suggests that the stock price tends to move toward the strike
+                price where the most options (both calls and puts) expire worthless.</p>
+            <p>This price point causes maximum financial loss to options buyers and minimum loss to options writers, the
+                majority of which are market makers, who may influence the market toward that price.</p>
+            <p>Though not a guarantee, the max pain price is used as a tool to anticipate market movement near
+                options expiration dates.</p>
+            <p>This script pulls the open interest and cost of the option at every strike price for the given stock
+                ticker. </p>
+    
+    
+        </div>
+
+    </div>
+    <div class="right">
+        <div class="right-container">
+            <script src="https://gist.github.com/videkami/f43a6868b1587f33b555e145fade9bcf.js"></script>
+        </div>
+    </div>
+
+    <script>
+        // Ensure iframe inside gist resizes properly
+        window.addEventListener("load", function () {
+            const gistFrames = document.querySelectorAll('.gist iframe');
+            gistFrames.forEach(frame => {
+                frame.style.width = "100%";
+            });
+        });
+    </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Function to load HTML into a placeholder
+      function loadHTML(url, elementId) {
+        fetch(url)
+          .then(response => response.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            const contentToInsert = doc.body.children.length > 0 ? doc.body.children[0] : null;
+
+            if (contentToInsert) {
+              document.getElementById(elementId).appendChild(contentToInsert);
+            } else {
+              document.getElementById(elementId).innerHTML = html;
+            }
+          })
+          .catch(error => console.error(`Error loading ${url}:`, error));
+      }
+      loadHTML('/header.html', 'header-placeholder');
+    });
+  </script>
+</body>
+
+</html>
