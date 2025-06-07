@@ -89,10 +89,6 @@ h1 {
     right: 0;
     width: 100%;
     height: 100%;
-    /* background-color: var(--color-primary); */
-    /* background-image: radial-gradient(white, black); */
-
-    /* background-image: url('background.jpg'); */
     background: url('https://i.imgur.com/URGyHjt.jpeg');
     background-color: rgb(182, 182, 182);
     background-blend-mode: multiply;
@@ -198,9 +194,6 @@ h1 {
   from {
     transform: translateX(100%)
   }
-
-  /* from { transform: translateX(0) } */
-
   to {
     transform: translateX(0)
   }

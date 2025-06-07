@@ -44,6 +44,52 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
         }
+
+        .nav-hint {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 5rem;
+            color: white;
+            opacity: 0;
+            animation: blinkFade 5s ease-out forwards;
+            pointer-events: none;
+            z-index: 2;
+            font-family: sans-serif;
+            user-select: none;
+        }
+
+        .nav-hint.left {
+            left: 20px;
+        }
+
+        .nav-hint.right {
+            right: 20px;
+        }
+
+        @keyframes blinkFade {
+
+            0%,
+            20% {
+                opacity: 0;
+            }
+
+            30% {
+                opacity: 1;
+            }
+
+            40% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
     </style>
     <script>
         function setVH() {
@@ -64,6 +110,8 @@
 
     <div class="photo-container">
         <img src="https://i.imgur.com/MV3jrW3.jpeg" alt="Photo 1">
+    <div class="nav-hint left">&#10092;</div>
+    <div class="nav-hint right">&#10093;</div>
     </div>
 
     <div class="nav-overlay">
@@ -72,7 +120,8 @@
     </div>
 
     <script>
-        const photos = ["https://i.imgur.com/MV3jrW3.jpeg",
+        const photos = [
+            "https://i.imgur.com/MV3jrW3.jpeg",
             "https://i.imgur.com/xbZ6aku.jpeg",
             "https://i.imgur.com/QFfkl59.jpeg"
         ]
@@ -110,6 +159,7 @@
             loadHTML('/header.html', 'header-placeholder');
         });
     </script>
+
 </body>
 
 </html>
