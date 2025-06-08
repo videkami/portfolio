@@ -92,7 +92,7 @@ h1 {
     background: url('https://i.imgur.com/URGyHjt.jpeg');
     background-color: rgb(182, 182, 182);
     background-blend-mode: multiply;
-    background-position: bottom;
+    background-position: right 50% bottom 33%;
     transform-origin: 0 50%;
     z-index: -1;
   }
