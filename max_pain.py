@@ -32,11 +32,21 @@ for expDate in expiration_dates:
     df['total_value'] = df['call_value'] + df['put_value']
     
     max_pain = df.iloc[df['total_value'].idxmax()]
-    new_row = {'expiration': expDate, 'max_pain_strike': max_pain['strike'], 'openInterest_calls':max_pain['openInterest_calls'], 'openInterest_puts': max_pain['openInterest_puts']}
+    new_row = {
+        'expiration': expDate, 
+        'max_pain_strike': max_pain['strike'], 
+        'openInterest_calls':max_pain['openInterest_calls'], 
+        'openInterest_puts': max_pain['openInterest_puts']}
     maxPain_list.append(new_row)
 
 # Start index at 1 to make it more human readable
 df_allExpirations = pd.DataFrame(maxPain_list, columns= column_headers)
-df_allExpirations[['max_pain_strike', 'openInterest_calls', 'openInterest_puts']] = df_allExpirations[['max_pain_strike', 'openInterest_calls', 'openInterest_puts']].astype('Int64')
+df_allExpirations[[
+    'max_pain_strike', 
+    'openInterest_calls', 
+    'openInterest_puts']] = df_allExpirations[[
+        'max_pain_strike', 
+        'openInterest_calls', 
+        'openInterest_puts']].astype('Int64')
 df_allExpirations.index += 1
 print(df_allExpirations)
