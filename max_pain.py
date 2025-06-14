@@ -39,7 +39,6 @@ for expDate in expiration_dates:
         'total_value': max_pain['total_value']}
     maxPain_list.append(new_row)
 
-# Start index at 1 to make it more human readable
 df_allExpirations = pd.DataFrame(maxPain_list, columns= column_headers)
 conversion_list = ['max_pain_strike', 'openInterest_calls', 'openInterest_puts']
 df_allExpirations[conversion_list] = df_allExpirations[conversion_list].astype('Int64')
